@@ -19,8 +19,10 @@ There is **no separate download script**: `pnpm` / `npm` **is** the step that fe
 2. In each app, depend on:
 
 ```json
-"@pt/rental-shared": "git+https://github.com/YOUR_ORG/pt-rental-shared.git#v1.0.0"
+"@pt/rental-shared": "git+https://github.com/AlwazShahid/pt-rental-shared.git#main"
 ```
+
+For reproducible deploys, tag a release (e.g. `v1.0.0`) and switch all apps to `#v1.0.0` instead of `#main`.
 
 3. On `install`, the package manager clones that tag and runs **`prepare`** → `npm run build` → `dist/` is created.
 
@@ -36,6 +38,7 @@ There is **no separate download script**: `pnpm` / `npm` **is** the step that fe
 ## Contents
 
 - `rental-transaction.machine` — states, `allowed_actions`, transitions
+- `transaction-context` — `RentalTransactionContext` (canonical gates: `contractCustomerSigned`, inspection flags, `phase`)
 - `checkout-metadata` — Stripe Checkout `quote_request_id` / fee parsing
 - `booking-preconditions` — shared guards for booking-from-payment
 

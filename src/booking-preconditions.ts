@@ -4,11 +4,14 @@
 
 import { QuoteRequestStatus } from './canonical-enums';
 
-/** Quote must be `responded` (offer accepted path) before booking creation from payment. */
+/**
+ * Quote must be `responded` before booking-from-payment (conversation-first: accepted offer lives in
+ * `accepted_offer` JSON; DB enum is `responded`, not legacy `offer_accepted`).
+ */
 export function assertQuoteStatusAllowsBookingFromPayment(quoteStatus: string): void {
   if (quoteStatus !== QuoteRequestStatus.responded) {
     throw new BookingPrecheckError(
-      `Quote request is not in offer_accepted status (current: ${quoteStatus}). Cannot create booking.`
+      `Quote request must be status "${QuoteRequestStatus.responded}" to create booking from payment (current: ${quoteStatus}).`
     );
   }
 }
