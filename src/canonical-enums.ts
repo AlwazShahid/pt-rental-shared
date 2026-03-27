@@ -41,3 +41,31 @@ export const RentalTransactionState = {
 } as const;
 export type RentalTransactionState =
   (typeof RentalTransactionState)[keyof typeof RentalTransactionState];
+
+/** Aligns with Prisma BookingStatus / apps `types/database`. */
+export const BookingStatus = {
+  pending: 'pending',
+  confirmed: 'confirmed',
+  active: 'active',
+  completed: 'completed',
+  cancelled: 'cancelled',
+  ready_for_pickup: 'ready_for_pickup',
+  pending_contract: 'pending_contract',
+} as const;
+export type BookingStatus = (typeof BookingStatus)[keyof typeof BookingStatus];
+
+/** Aligns with Prisma InspectionStatus. */
+export const InspectionStatus = {
+  pending: 'pending',
+  in_progress: 'in_progress',
+  completed: 'completed',
+  cancelled: 'cancelled',
+} as const;
+export type InspectionStatus = (typeof InspectionStatus)[keyof typeof InspectionStatus];
+
+/** Aligns with Prisma InspectionType. */
+export const InspectionType = {
+  pre_rental: 'pre_rental',
+  post_rental: 'post_rental',
+} as const;
+export type InspectionType = (typeof InspectionType)[keyof typeof InspectionType];

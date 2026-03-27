@@ -1,6 +1,6 @@
 {
   "name": "@pt/rental-shared",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Shared rental transaction state machine, canonical enums, and pure helpers for pt-admin, pt-marketplace, pt-vendor",
   "license": "UNLICENSED",
   "private": false,
